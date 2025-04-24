@@ -1,162 +1,928 @@
-<h2>Get In Touch</h2>
-                <p>Ready to transform your business? Connect with our experts today.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consinn | Professional Consulting Services</title>
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --light-gold: #F5E7A3;
+            --black: #1A1A1A;
+            --white: #FFFFFF;
+            --gray: #F5F5F5;
+            --dark-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .btn {
+            background-color: var(--gold);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--black);
+            color: var(--gold);
+        }
+        
+        /* Mobile Navigation */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--black);
+            margin: 2px 0;
+            transition: 0.4s;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--gold);
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--gold);
+            color: var(--white);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 50px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .section-title p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Services Section */
+        #services {
+            background-color: var(--gray);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        /* Industries Section */
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .industry-card {
+            position: relative;
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .industry-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+        }
+        
+        .industry-card:hover .industry-bg {
+            transform: scale(1.1);
+        }
+        
+        .industry-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+        
+        .industry-card h3 {
+            color: var(--white);
+            font-size: 20px;
+        }
+        
+        /* Case Studies */
+        #case-studies {
+            background-color: var(--gray);
+        }
+        
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .case-study-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .case-study-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .case-study-content {
+            padding: 25px;
+        }
+        
+        .case-study-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .case-study-content .tag {
+            display: inline-block;
+            background-color: var(--light-gold);
+            color: var(--black);
+            padding: 5px 10px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials */
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .testimonial-item {
+            padding: 30px;
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            font-size: 50px;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .testimonial-text:before {
+            top: -20px;
+            left: -20px;
+        }
+        
+        .testimonial-text:after {
+            bottom: -40px;
+            right: -20px;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .client-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .client-details h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .client-details p {
+            color: var(--dark-gray);
+            font-size: 14px;
+        }
+        
+        /* Team Section */
+        #team {
+            background-color: var(--gray);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .member-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center top;
+        }
+        
+        .member-info {
+            padding: 20px;
+        }
+        
+        .member-info h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .member-info p {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-form {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            margin-right: 15px;
+            min-width: 20px;
+            color: var(--gold);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 20px 20px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 20px 30px;
+            }
+            
+            section {
+                padding: 60px 30px;
+            }
+            
+            .about-content, 
+            .contact-content {
+                flex-direction: column;
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                margin-top: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                background-color: var(--white);
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                transition: transform 0.5s;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .service-card, 
+            .case-study-card, 
+            .team-member {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">Con<span>sinn</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#industries">Industries</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#team">Our Team</a></li>
+                <li><a href="#contact" class="btn">Contact Us</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form action="#" method="post">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Company Name</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transforming Challenges into <span>Opportunities</span></h1>
+            <p>Consinn delivers innovative business solutions that drive growth, efficiency, and sustainable success for organizations across industries.</p>
+            <div class="cta-buttons">
+                <a href="#services" class="btn">Our Services</a>
+                <a href="#contact" class="btn btn-outline">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>At Consinn, we combine deep industry expertise with cutting-edge strategies to deliver exceptional results.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Trusted Strategic Partner</h3>
+                    <p>Consinn is a premier global consulting firm dedicated to helping businesses navigate complex challenges and seize new opportunities. With our team of experienced consultants and industry experts, we deliver tailored solutions that drive measurable impact.</p>
+                    <p>Since our founding, we've partnered with organizations of all sizes—from emerging startups to Fortune 500 companies—providing strategic guidance and innovative approaches to achieve their business objectives.</p>
+                    <p>Our collaborative approach ensures that we understand your unique needs and deliver solutions that align with your vision and goals.</p>
+                    <a href="#contact" class="btn">Learn More About Our Approach</a>
                 </div>
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <p>123 Business Avenue, Suite 500<br>New York, NY 10001</p>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">✉️</div>
-                            <p>info@consinn.com</p>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">🕒</div>
-                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                        </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="Consinn team meeting">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We provide comprehensive consulting services tailored to meet your specific business needs.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">&#128202;</div>
+                    <h3>Strategy Consulting</h3>
+                    <p>Define your vision and develop actionable strategies to achieve sustainable growth and competitive advantage in your market.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128187;</div>
+                    <h3>Technology Transformation</h3>
+                    <p>Leverage cutting-edge technologies to streamline operations, enhance customer experiences, and drive digital innovation.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128200;</div>
+                    <h3>Operations Excellence</h3>
+                    <p>Optimize your business processes, supply chain, and resource allocation to maximize efficiency and reduce costs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128101;</div>
+                    <h3>Human Capital</h3>
+                    <p>Transform your workforce strategy to attract, develop, and retain top talent while creating a culture of high performance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128640;</div>
+                    <h3>Innovation & Growth</h3>
+                    <p>Identify new market opportunities, develop innovative products, and create sustainable growth strategies.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128177;</div>
+                    <h3>Financial Advisory</h3>
+                    <p>Make informed financial decisions with our expert guidance on investments, mergers, acquisitions, and risk management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries">
+        <div class="container">
+            <div class="section-title">
+                <h2>Industries We Serve</h2>
+                <p>Our expertise spans across multiple sectors, providing specialized solutions for diverse industry challenges.</p>
+            </div>
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-bg" style="background-image: url('/api/placeholder/400/250');"></div>
+                    <div class="industry-overlay">
+                        <h3>Financial Services</h3>
                     </div>
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="#">L</a>
-                        <a href="#">f</a>
-                        <a href="#">T</a>
-                        <a href="#">I</a>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-bg" style="background-image: url('/api/placeholder/400/250');"></div>
+                    <div class="industry-overlay">
+                        <h3>Healthcare</h3>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-bg" style="background-image: url('/api/placeholder/400/250');"></div>
+                    <div class="industry-overlay">
+                        <h3>Technology</h3>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-bg" style="background-image: url('/api/placeholder/400/250');"></div>
+                    <div class="industry-overlay">
+                        <h3>Manufacturing</h3>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-bg" style="background-image: url('/api/placeholder/400/250');"></div>
+                    <div class="industry-overlay">
+                        <h3>Retail & Consumer</h3>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-bg" style="background-image: url('/api/placeholder/400/250');"></div>
+                    <div class="industry-overlay">
+                        <h3>Energy & Resources</h3>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-bg" style="background-image: url('/api/placeholder/400/250');"></div>
+                    <div class="industry-overlay">
+                        <h3>Public Sector</h3>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-bg" style="background-image: url('/api/placeholder/400/250');"></div>
+                    <div class="industry-overlay">
+                        <h3>Telecommunications</h3>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Consinn</h3>
-                <p>Transforming challenges into opportunities through innovative consulting solutions.</p>
-                <div class="social-links">
-                    <a href="#">L</a>
-                    <a href="#">f</a>
-                    <a href="#">T</a>
-                    <a href="#">I</a>
+    <!-- Case Studies Section -->
+    <section id="case-studies">
+        <div class="container">
+            <div class="section-title">
+                <h2>Case Studies</h2>
+                <p>Explore how we've helped our clients overcome challenges and achieve significant business outcomes.</p>
+            </div>
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <div class="case-study-image" style="background-image: url('/api/placeholder/400/250');"></div>
+                    <div class="case-study-content">
+                        <span class="tag">Financial Services</span>
+                        <h3>Digital Transformation for Global Bank</h3>
+                        <p>Helped a leading financial institution modernize its digital infrastructure, resulting in 40% increased efficiency and improved customer satisfaction.</p>
+                        <a href="#" class="btn">Read Case Study</a>
+                    </div>
+                </div>
+                <div class="case-study-card">
+                    <div class="case-study-image" style="background-image: url('/api/placeholder/400/250');"></div>
+                    <div class="case-study-content">
+                        <span class="tag">Healthcare</span>
+                        <h3>Supply Chain Optimization</h3>
+                        <p>Redesigned the supply chain process for a healthcare network, reducing costs by 25% and improving delivery times by 35%.</p>
+                        <a href="#" class="btn">Read Case Study</a>
+                    </div>
+                </div>
+                <div class="case-study-card">
+                    <div class="case-study-image" style="background-image: url('/api/placeholder/400/250');"></div>
+                    <div class="case-study-content">
+                        <span class="tag">Technology</span>
+                        <h3>Growth Strategy for Tech Startup</h3>
+                        <p>Developed and implemented a market expansion strategy that helped a tech startup grow revenue by 150% in 18 months.</p>
+                        <a href="#" class="btn">Read Case Study</a>
+                    </div>
                 </div>
             </div>
-            <div class="footer-column">
-                <h3>Services</h3>
-                <ul class="footer-links">
-                    <li><a href="#services">Strategy Consulting</a></li>
-                    <li><a href="#services">Technology Transformation</a></li>
-                    <li><a href="#services">Operations Excellence</a></li>
-                    <li><a href="#services">Human Capital</a></li>
-                    <li><a href="#services">Innovation & Growth</a></li>
-                    <li><a href="#services">Financial Advisory</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Industries</h3>
-                <ul class="footer-links">
-                    <li><a href="#industries">Financial Services</a></li>
-                    <li><a href="#industries">Healthcare</a></li>
-                    <li><a href="#industries">Technology</a></li>
-                    <li><a href="#industries">Manufacturing</a></li>
-                    <li><a href="#industries">Retail & Consumer</a></li>
-                    <li><a href="#industries">Energy & Resources</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#case-studies">Case Studies</a></li>
-                    <li><a href="#team">Our Team</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">News & Insights</a></li>
-                </ul>
-            </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 Consinn Consulting. All Rights Reserved.</p>
-        </div>
-    </footer>
+    </section>
 
-    <!-- JavaScript for Mobile Menu Toggle -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            
-            menuToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-            });
-            
-            // Close menu when clicking a link
-            const links = document.querySelectorAll('.nav-links a');
-            links.forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('active');
-                });
-            });
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Simple form validation
-            const contactForm = document.querySelector('.contact-form form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Thank you for your message! We will get back to you soon.');
-                    this.reset();
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>Hear what our clients say about their experience working with Consinn.</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-item">
+                    <div class="testimonial-text">
+                        <p>Consinn's strategic guidance transformed our business operations. Their team's dedication and expertise helped us navigate complex challenges and achieve remarkable growth.</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-image" style="background-image: url('/api/placeholder/100/100');"></div>
+                        <div class="client-details">
+                            <h4>Sarah Johnson</h4>
+                            <p>CEO, TechInnovate Inc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Leadership Team</h2>
+                <p>Meet the experienced professionals who lead our consulting practice.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image" style="background-image: url('/api/placeholder/300/350');"></div>
+                    <div class="member-info">
+                        <h3>Michael Richardson</h3>
+                        <p>Chief Executive Officer</p>
+                        <p>With over 20 years of experience in strategy consulting, Michael brings visionary leadership to Consinn.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image" style="background-image: url('/api/placeholder/300/350');"></div>
+                    <div class="member-info">
+                        <h3>Emily Chen</h3>
+                        <p>Chief Strategy Officer</p>
+                        <p>Emily specializes in digital transformation and innovation strategies across multiple industries.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image" style="background-image: url('/api/placeholder/300/350');"></div>
+                    <div class="member-info">
+                        <h3>David Wilson</h3>
+                        <p>Head of Technology</p>
+                        <p>David leads our technology practice, focusing on emerging technologies and digital solutions.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image" style="background-image: url('/api/placeholder/300/350');"></div>
+                    <div class="member-info">
+                        <h3>Sophia Martinez</h3>
+                        <p>Director of Operations</p>
+                        <p>Sophia brings expertise in operational excellence and process optimization to our clients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In
